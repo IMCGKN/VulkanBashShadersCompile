@@ -6,8 +6,11 @@ if ! command -v glslc &> /dev/null; then
     exit 1
 fi
 
-if [ -d shaders/ ]; then
-    cd shaders/
+echo "Enter directory of shaders: "
+read directory
+
+if [ -d ${directory}/ ]; then
+    cd ${directory}/
     if [ -z "$(ls .)" ]; then
         echo "No shaders!"
     else
@@ -16,5 +19,5 @@ if [ -d shaders/ ]; then
         done
     fi
 else
-    echo "No folder named 'shaders'!"
+    echo "No folder named '${directory}'!"
 fi
